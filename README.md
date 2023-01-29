@@ -1,2 +1,2 @@
-# Anna-s-Archive-bot
+# Annas-Archive-bot (Unofficial)
 discord chatbot to interact with anna's archives, to access human knowledge
