@@ -1,0 +1,26 @@
+{
+  "name": "Annas-Archive-bot",
+  "version": "1.0.0",
+  "description": "discord chatbot to interact with anna's archives, to access human knowledge",
+  "main": "index.js",
+  "dependencies": {
+    "discord.js": "^14.7.1",
+    "dotenv": "^16.0.3",
+    "init": "^0.1.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ethanol48/Annas-Archive-bot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ethanol48/Anna-s-Archive-bot/issues"
+  },
+  "homepage": "https://github.com/Ethanol48/Anna-s-Archive-bot#readme"
+}
