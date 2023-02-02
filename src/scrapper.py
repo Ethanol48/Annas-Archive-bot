@@ -14,7 +14,7 @@ def get_soup_from_file(file):
     return soup
 
 def get_soup_from_internet(url):
-    
+
     if "https://annas-archive" not in url:
         return "Not valid url"
 
@@ -31,18 +31,23 @@ def get_soup_from_internet(url):
 def get_books(pagina):
 
     if pagina == "Not valid url":
-        return pagina
+        return {"message" : "Not valid url"}
 
     elif pagina is None:
-        return "error in response"
+        return {"message" : "internal error"}
 
     a = pagina.find_all(id=re.compile("^link-index-"))
 
     if len(a) == 0:
-        return "No books found"
+        return {"message": "No books found"}
 
     result = {}
-    for i in range(51):
+
+    rango = len(a)
+    if rango > 51:
+        rango = 51
+
+    for i in range(rango):
         try:
             ## Titulo del libro, en <h3> de cada div, innerHTML
             titulo = a[i].find("h3").get_text()
@@ -52,7 +57,7 @@ def get_books(pagina):
 
             ## src de la imagen
             href = a[i].find("a")["href"]
-            
+
 
             try:
                 imagen = a[i].find("img")["src"]
@@ -65,6 +70,23 @@ def get_books(pagina):
             for item in range(len(complete)):
                 complete[item] = complete[item].strip()
 
+            try:
+                lang = complete[0]
+
+            except IndexError:
+                lang = "Unknown"
+
+            try:
+                format = complete[1]
+
+            except IndexError:
+                format = "Unknown"
+
+            try:
+                size = complete[2]
+
+            except IndexError:
+                size = "Unknown"
 
 
             index = str(i)
@@ -72,10 +94,10 @@ def get_books(pagina):
             result_piece = {
                 "titulo": titulo,
                 "autores": autores,
-                "lang": complete[0],
+                "lang": lang,
                 "imagen": imagen,
-                "format": complete[1],
-                "size": complete[2],
+                "format": format,
+                "size": size,
                 "href": href
             }
 
@@ -95,7 +117,7 @@ def get_books(pagina):
 
 
             href = soup_comment.find("a")["href"]
-            
+
             ## src de la imagen
             try:
                 imagen = soup_comment.find("img")["src"]
@@ -103,21 +125,39 @@ def get_books(pagina):
             except:
                 imagen = None
 
-            
+
             # extraer del texto de un div
             complete = soup_comment.find(attrs={"class": "truncate text-xs text-gray-500"}).get_text().split(",")
             for item in range(len(complete)):
                 complete[item] = complete[item].strip()
+
+            try:
+                lang = complete[0]
+
+            except IndexError:
+                lang = "Unknown"
+
+            try:
+                format = complete[1]
+
+            except IndexError:
+                format = "Unknown"
+
+            try:
+                size = complete[2]
+
+            except IndexError:
+                size = "Unknown"
 
             index = str(i)
 
             result_piece = {
                 "titulo": titulo,
                 "autores": autores,
-                "lang": complete[0],
+                "lang": lang,
                 "imagen": imagen,
-                "format": complete[1],
-                "size": complete[2],
+                "format": format,
+                "size": size,
                 "href": href
             }
 
