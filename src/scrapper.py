@@ -50,9 +50,9 @@ def get_books(pagina):
             ## autores en div con esta class abajo, innerHTML
             autores = a[i].find(attrs={"class": "truncate italic"}).get_text()
 
-            href = a[i].find("a")["href"]
             ## src de la imagen
-
+            href = a[i].find("a")["href"]
+            
 
             try:
                 imagen = a[i].find("img")["src"]
@@ -60,12 +60,22 @@ def get_books(pagina):
             except:
                 imagen = None
 
+
+            complete = a[i].find(attrs={"class": "truncate text-xs text-gray-500"}).get_text().split(",")
+            for item in range(len(complete)):
+                complete[item] = complete[item].strip()
+
+
+
             index = str(i)
 
             result_piece = {
                 "titulo": titulo,
                 "autores": autores,
+                "lang": complete[0],
                 "imagen": imagen,
+                "format": complete[1],
+                "size": complete[2],
                 "href": href
             }
 
@@ -85,7 +95,7 @@ def get_books(pagina):
 
 
             href = soup_comment.find("a")["href"]
-
+            
             ## src de la imagen
             try:
                 imagen = soup_comment.find("img")["src"]
@@ -93,12 +103,21 @@ def get_books(pagina):
             except:
                 imagen = None
 
+            
+            # extraer del texto de un div
+            complete = soup_comment.find(attrs={"class": "truncate text-xs text-gray-500"}).get_text().split(",")
+            for item in range(len(complete)):
+                complete[item] = complete[item].strip()
+
             index = str(i)
 
             result_piece = {
                 "titulo": titulo,
                 "autores": autores,
+                "lang": complete[0],
                 "imagen": imagen,
+                "format": complete[1],
+                "size": complete[2],
                 "href": href
             }
 
