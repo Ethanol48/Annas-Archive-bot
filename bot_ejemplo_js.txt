@@ -1,5 +1,3 @@
-// Explain me what this file does excatly
-
 require('dotenv').config();
 
 const { REST, Routes } = require('discord.js');

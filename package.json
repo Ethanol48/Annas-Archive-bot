@@ -4,13 +4,16 @@
   "description": "discord chatbot to interact with anna's archives, to access human knowledge",
   "main": "src/bot.js",
   "dependencies": {
+    "@discordjs/rest": "^1.5.0",
+    "chalk": "^4.1.2",
+    "discord-api-types": "^0.37.31",
     "discord.js": "^14.7.1",
     "dotenv": "^16.0.3",
     "init": "^0.1.2"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node ."
   },
   "repository": {
     "type": "git",
