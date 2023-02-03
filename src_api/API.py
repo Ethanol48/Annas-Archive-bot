@@ -59,7 +59,7 @@ class BookSpecific(Resource):
         parser.add_argument("author", type=str, required=False)
         parser.add_argument("title", type=str, required=False)
 
-        Content = [
+        contents = [
             "Journal article", "Book (any)", "Book (non-fiction)",
             "Book (fiction)", "Book (unknown)", "Comic book", "Magazine",
             "Standards document"
@@ -105,22 +105,28 @@ class BookSpecific(Resource):
                 "options": langs
             }, 400
 
-        elif args["content"] not in Content and check_if_null(args["content"]) == False:
+        elif args["content"] not in contents and check_if_null(args["content"]) == False:
             return {
                 "message": "the parameter used for content is not correct",
-                "content": args["content"]
+                "content": args["content"],
+                "help": "the correct values are the following: ",
+                "options": contents
             }, 400
 
         elif args["ext"] not in exts and check_if_null(args["ext"]) == False:
             return {
                 "message": "the parameter used for ext is not correct",
-                "ext": args["ext"]
+                "ext": args["ext"],
+                "help": "the correct values are the following: ",
+                "options": exts
             }, 400
 
         elif args["sort"] not in sorts and check_if_null(args["sort"]) == False:
             return {
                 "message": "the parameter used for sort is not correct",
-                "sort": args["sort"]
+                "sort": args["sort"],
+                "help": "the correct values are the following: ",
+                "options": sorts
             }, 400
 
 
