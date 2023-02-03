@@ -59,5 +59,6 @@ client.on('interactionCreate', async interaction => {
 	}
 });
 
+
 // log bot in with token from .env file
 client.login(process.env.DISCORD_TOKEN);

@@ -2,7 +2,7 @@
   "name": "Annas-Archive-bot",
   "version": "1.0.0",
   "description": "discord chatbot to interact with anna's archives, to access human knowledge",
-  "main": "index.js",
+  "main": "src/bot.js",
   "dependencies": {
     "discord.js": "^14.7.1",
     "dotenv": "^16.0.3",
@@ -17,7 +17,7 @@
     "url": "git+https://github.com/Ethanol48/Annas-Archive-bot.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Ethanol48",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Ethanol48/Anna-s-Archive-bot/issues"
