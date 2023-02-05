@@ -2,22 +2,25 @@
   "name": "Annas-Archive-bot",
   "version": "1.0.0",
   "description": "discord chatbot to interact with anna's archives, to access human knowledge",
-  "main": "index.js",
+  "main": "src/bot.js",
   "dependencies": {
+    "@discordjs/rest": "^1.5.0",
+    "chalk": "^4.1.2",
+    "discord-api-types": "^0.37.31",
     "discord.js": "^14.7.1",
     "dotenv": "^16.0.3",
     "init": "^0.1.2"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node ."
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Ethanol48/Annas-Archive-bot.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Ethanol48",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Ethanol48/Anna-s-Archive-bot/issues"

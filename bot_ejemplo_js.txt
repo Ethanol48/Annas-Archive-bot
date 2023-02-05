@@ -1,5 +1,3 @@
-// Explain me what this file does excatly
-
 require('dotenv').config();
 
 const { REST, Routes } = require('discord.js');
@@ -58,6 +56,7 @@ client.on('interactionCreate', async interaction => {
 
 	}
 });
+
 
 // log bot in with token from .env file
 client.login(process.env.DISCORD_TOKEN);
